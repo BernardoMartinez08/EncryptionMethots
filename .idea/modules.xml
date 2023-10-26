@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Information_Security.iml" filepath="$PROJECT_DIR$/Information_Security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cesar_encryption/cesar_encryption.iml" filepath="$PROJECT_DIR$/cesar_encryption/cesar_encryption.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spartan_encryption/spartan_encryption.iml" filepath="$PROJECT_DIR$/spartan_encryption/spartan_encryption.iml" />
     </modules>
   </component>
 </project>
