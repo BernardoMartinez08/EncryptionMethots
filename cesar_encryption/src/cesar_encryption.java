@@ -1,8 +1,36 @@
 import java.util.Scanner;
 
 public class cesar_encryption {
-    public String cesar_encryption(String text, int move_number, int direction, int alphabet){
-        return "";
+
+    public int new_index(char caracter, int direction, int move_number){
+        int index = 0;
+        if(direction == 1)
+            index = (caracter - 'a' - move_number) % 26;
+        else
+            index = (caracter - 'a' + move_number) % 26;
+
+        return index;
+    }
+
+    public char swap_caracter(char caracter, int direction, int move_number){
+        caracter = Character.toLowerCase(caracter);
+        int index = new_index(caracter, direction, move_number);
+        char new_caracter = (char) ('a' + index);
+        return new_caracter;
+    }
+
+    public String cesar_encryption(String text, int move_number, int direction){
+        StringBuilder result = new StringBuilder();
+        for (char caracter : text.toCharArray()) {
+
+            if (Character.isLetter(caracter)) {
+                char new_caracter = swap_caracter(caracter, direction, move_number);
+                result.append(new_caracter);
+            } else {
+                result.append(caracter);
+            }
+        }
+        return result.toString();
     }
 
     public static void main(String[] args) {
@@ -17,7 +45,11 @@ public class cesar_encryption {
         System.out.print("Ingrese la direccion del desplazamiento:\n1. Izquierda\n2. Derecha\nIngrese el numero de la opcion que desea: ");
         int direction = scan.nextInt();
 
-        System.out.print("Ingrese el alfabeto usar:\n1. Ingles\n2. Español\nIngrese el numero de la opcion que desea: ");
-        int opc = scan.nextInt();
+        cesar_encryption cesar = new cesar_encryption();
+        String encrypted_text = cesar.cesar_encryption(text, move_number, direction);
+
+        System.out.println("\n------------------------------------------------------------------------------------------");
+        System.out.println("Texto encriptado: " + encrypted_text);
+        System.out.println("------------------------------------------------------------------------------------------");
     }
 }
