@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class cesar_encryption {
     public String cesar_encryption(String text, int move_number, int direction, int alphabet){
-
+        return "";
     }
 
     public static void main(String[] args) {
