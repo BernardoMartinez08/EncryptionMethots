@@ -17,7 +17,7 @@ public class spartan_encryption {
         return text_array;
     }
 
-    public String spartan_encription(String[][] text) {
+    public String encrypt(String[][] text) {
         StringBuilder encrypted_text = new StringBuilder();
         for(int i = 0; i < text.length; i++){
             for (int j = 0; j < text.length; j++) {
@@ -47,7 +47,7 @@ public class spartan_encryption {
 
         spartan_encryption spartan = new spartan_encryption();
         String[][] text_array = spartan.split_text(text, columns);
-        String encrypted_text = spartan.spartan_encription(text_array);
+        String encrypted_text = spartan.encrypt(text_array);
 
         System.out.println("\n------------------------------------------------------------------------------------------");
         System.out.println("Texto encriptado: " + encrypted_text);

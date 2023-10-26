@@ -15,11 +15,10 @@ public class cesar_encryption {
     public char swap_caracter(char caracter, int direction, int move_number){
         caracter = Character.toLowerCase(caracter);
         int index = new_index(caracter, direction, move_number);
-        char new_caracter = (char) ('a' + index);
-        return new_caracter;
+        return (char) ('a' + index);
     }
 
-    public String cesar_encryption(String text, int move_number, int direction){
+    public String encrypt(String text, int move_number, int direction){
         StringBuilder result = new StringBuilder();
         for (char caracter : text.toCharArray()) {
 
@@ -46,7 +45,7 @@ public class cesar_encryption {
         int direction = scan.nextInt();
 
         cesar_encryption cesar = new cesar_encryption();
-        String encrypted_text = cesar.cesar_encryption(text, move_number, direction);
+        String encrypted_text = cesar.encrypt(text, move_number, direction);
 
         System.out.println("\n------------------------------------------------------------------------------------------");
         System.out.println("Texto encriptado: " + encrypted_text);
