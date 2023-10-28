@@ -3,14 +3,19 @@ import java.util.Scanner;
 public class cesar_encryption {
 
     public int new_index(char caracter, int direction, int move_number){
-        int index = 0;
-        if(direction == 1)
-            index = (caracter - 'a' - move_number) % 26;
-        else
-            index = (caracter - 'a' + move_number) % 26;
+        int index = caracter - 'a';
+        if (direction == 1) {
+            index = (index - move_number) % 26;
 
+            if (index < 0)
+                index += 26;
+
+        } else {
+            index = (index + move_number) % 26;
+        }
         return index;
     }
+
 
     public char swap_caracter(char caracter, int direction, int move_number){
         caracter = Character.toLowerCase(caracter);
@@ -18,18 +23,29 @@ public class cesar_encryption {
         return (char) ('a' + index);
     }
 
-    public String encrypt(String text, int move_number, int direction){
+    public String calculate_text(String text, int direction, int move_number, int method){
         StringBuilder result = new StringBuilder();
-        for (char caracter : text.toCharArray()) {
 
+        if(method == 2)
+            direction = direction == 1 ? 2 : 1;
+
+        for (char caracter : text.toCharArray()) {
             if (Character.isLetter(caracter)) {
-                char new_caracter = swap_caracter(caracter, direction, move_number);
+                char new_caracter = swap_caracter(caracter, direction , move_number);
                 result.append(new_caracter);
             } else {
                 result.append(caracter);
             }
         }
         return result.toString();
+    }
+
+    public String encrypt(String text, int move_number, int direction){
+        return calculate_text(text, direction, move_number, 1);
+    }
+
+    public String decrypt(String text, int move_number, int direction){
+        return calculate_text(text, direction, move_number, 2);
     }
 
     public static void main(String[] args) {
@@ -46,9 +62,11 @@ public class cesar_encryption {
 
         cesar_encryption cesar = new cesar_encryption();
         String encrypted_text = cesar.encrypt(text, move_number, direction);
+        String decrypted_text = cesar.decrypt(encrypted_text, move_number, direction);
 
         System.out.println("\n------------------------------------------------------------------------------------------");
         System.out.println("Texto encriptado: " + encrypted_text);
+        System.out.println("Texto desencriptado: " + decrypted_text);
         System.out.println("-------------------------------------------------------------------------------------------");
     }
 }

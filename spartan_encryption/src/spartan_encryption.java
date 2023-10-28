@@ -17,11 +17,12 @@ public class spartan_encryption {
         return text_array;
     }
 
-    public String encrypt(String[][] text) {
+    public String encrypt(String encryptedText, int columns) {
+        String[][] text_array = split_text(encryptedText, columns);
         StringBuilder encrypted_text = new StringBuilder();
-        for(int i = 0; i < text.length; i++){
-            for (int j = 0; j < text.length; j++) {
-                encrypted_text.append(text[j][i]);
+        for(int i = 0; i < text_array.length; i++){
+            for (String[] strings : text_array) {
+                encrypted_text.append(strings[i]);
             }
         }
         return encrypted_text.toString();
@@ -35,7 +36,7 @@ public class spartan_encryption {
 
         int columns = 0;
         boolean accepted = false;
-        while(accepted != true) {
+        while(!accepted) {
             System.out.print("Ingrese el numero de columnas: ");
             columns = scan.nextInt();
 
@@ -46,8 +47,7 @@ public class spartan_encryption {
         }
 
         spartan_encryption spartan = new spartan_encryption();
-        String[][] text_array = spartan.split_text(text, columns);
-        String encrypted_text = spartan.encrypt(text_array);
+        String encrypted_text = spartan.encrypt(text, columns);
 
         System.out.println("\n------------------------------------------------------------------------------------------");
         System.out.println("Texto encriptado: " + encrypted_text);
