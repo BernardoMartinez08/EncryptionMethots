@@ -51,6 +51,10 @@ public class cesar_encryption {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
+        System.out.println("\n-------------------------------------------------------------------------------------------");
+        System.out.println("METODO DE ENCRIPTACION CESAR");
+        System.out.println("-------------------------------------------------------------------------------------------\n");
+
         System.out.print("Ingrese el texto a encriptar: ");
         String text = scan.nextLine();
 
@@ -64,7 +68,7 @@ public class cesar_encryption {
         String encrypted_text = cesar.encrypt(text, move_number, direction);
         String decrypted_text = cesar.decrypt(encrypted_text, move_number, direction);
 
-        System.out.println("\n------------------------------------------------------------------------------------------");
+        System.out.println("\n-------------------------------------------------------------------------------------------");
         System.out.println("Texto encriptado: " + encrypted_text);
         System.out.println("Texto desencriptado: " + decrypted_text);
         System.out.println("-------------------------------------------------------------------------------------------");

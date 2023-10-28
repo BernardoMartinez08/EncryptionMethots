@@ -69,6 +69,10 @@ public class vigenere_encryption {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
+        System.out.println("\n-------------------------------------------------------------------------------------------");
+        System.out.println("METODO DE ENCRIPTACION VIGENERE");
+        System.out.println("-------------------------------------------------------------------------------------------\n");
+
         System.out.print("Ingrese el texto a encriptar: ");
         String text = scan.nextLine();
 

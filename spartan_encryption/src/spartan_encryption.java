@@ -31,6 +31,10 @@ public class spartan_encryption {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
+        System.out.println("\n-------------------------------------------------------------------------------------------");
+        System.out.println("METODO DE ENCRIPTACION SPARTAN");
+        System.out.println("-------------------------------------------------------------------------------------------\n");
+
         System.out.print("Ingrese el texto a encriptar: ");
         String text = scan.nextLine();
 
@@ -49,8 +53,8 @@ public class spartan_encryption {
         spartan_encryption spartan = new spartan_encryption();
         String encrypted_text = spartan.encrypt(text, columns);
 
-        System.out.println("\n------------------------------------------------------------------------------------------");
+        System.out.println("\n-------------------------------------------------------------------------------------------");
         System.out.println("Texto encriptado: " + encrypted_text);
-        System.out.println("------------------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------------------");
     }
 }
