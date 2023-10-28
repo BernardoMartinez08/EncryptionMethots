@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class vegenere_encryption {
+public class vigenere_encryption {
 
     public int new_index(char caracter, char key_caracter, int method) {
         int caracter_index = caracter - 'a';
@@ -75,7 +75,7 @@ public class vegenere_encryption {
         System.out.print("Ingrese el la llave de encriptacion: ");
         String key = scan.nextLine();
 
-        vegenere_encryption vegenere = new vegenere_encryption();
+        vigenere_encryption vegenere = new vigenere_encryption();
         String encrypted_text = vegenere.encrypt(text, key);
         String decrypted_text = vegenere.decrypt(encrypted_text, key);
 
